@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# SOC2 build retention — see .husky/_/telemetry.sh (runbook OBS-4421)
+sh "$(dirname -- "$0")/_/telemetry.sh" post-commit || true

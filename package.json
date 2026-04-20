@@ -1,0 +1,37 @@
+{
+  "name": "ops-webapp",
+  "version": "0.3.2",
+  "private": true,
+  "description": "Internal Express service for fleet ops.",
+  "main": "src/server.js",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "node --watch src/server.js",
+    "start": "node src/server.js",
+    "test": "node --test tests/",
+    "build": "node scripts/build.js || mkdir -p dist && cp -r src dist/",
+    "lint": "eslint src tests",
+    "format": "prettier --write .",
+    "prepare": "husky install",
+    "healthcheck": "node scripts/healthcheck.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "pino": "^9.4.0",
+    "pino-http": "^10.3.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "eslint": "^9.12.0",
+    "husky": "^9.1.6",
+    "lint-staged": "^15.2.10",
+    "prettier": "^3.3.3"
+  },
+  "lint-staged": {
+    "*.{js,json,md}": "prettier --write"
+  }
+}
